@@ -1,0 +1,41 @@
+{
+  "name": "Company",
+  "plural": "companies",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "companyName": {
+      "type": "string",
+      "required": true,
+      "default": "Addis Ababa University"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "employee": {
+      "type": "hasMany",
+      "model": "employee",
+      "foreignKey": "companyId",
+      "options": {
+        "nestRemoting": true
+      },
+      "through": "Employee"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

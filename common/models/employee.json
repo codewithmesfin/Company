@@ -1,0 +1,56 @@
+{
+  "name": "Employee",
+  "plural": "employees",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "companyId": {
+      "type": "string",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true,
+      "default": "first name"
+    },
+    "lastName": {
+      "type": "string",
+      "required": true,
+      "default": "last name"
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "default": "phone no"
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "default": "email address"
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "default": "city name"
+    },
+    "country": {
+      "type": "string",
+      "required": true,
+      "default": "country name"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
